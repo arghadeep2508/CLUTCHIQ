@@ -44,6 +44,16 @@ nav = st.navigation(
 with st.sidebar:
     theme.brand_block()
     st.caption("Who delivers when the game is on the line?  \nIPL + T20I · 2022–2026")
+    st.markdown(
+        '<div style="margin:.55rem 0 .35rem;padding:.55rem .65rem;border-radius:10px;'
+        'background:rgba(245,184,61,.08);border:1px solid rgba(245,184,61,.28)">'
+        '<div style="font-size:.68rem;letter-spacing:.09em;text-transform:uppercase;color:#9fb0d6">Developer</div>'
+        '<div style="font-size:1rem;font-weight:800;color:#F5B83D;line-height:1.2">Arghadeep Dutta</div>'
+        '<a href="https://github.com/arghadeep2508" target="_blank" '
+        'style="font-size:.78rem;color:#4F8FE6;text-decoration:none">github.com/arghadeep2508</a>'
+        "</div>",
+        unsafe_allow_html=True,
+    )
     with st.expander("What do the words mean?"):
         for k, v in theme.GLOSSARY.items():
             st.markdown(f"**{k}** — {v}")
