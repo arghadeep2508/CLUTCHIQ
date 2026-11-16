@@ -252,6 +252,33 @@ def setup(title):
       animation: cqReveal linear both; animation-timeline: view(); animation-range: entry 0% cover 22%; }}
   }}
 
+  /* ---------- mobile / small screens ---------- */
+  @media (max-width: 640px) {{
+    .block-container {{ padding-left: .7rem !important; padding-right: .7rem !important; padding-top: 1.1rem !important; }}
+    /* stack all side-by-side columns (player cards, panels) to full width */
+    [data-testid="stHorizontalBlock"] {{ flex-wrap: wrap !important; gap: .55rem !important; }}
+    [data-testid="stHorizontalBlock"] > [data-testid="stColumn"],
+    [data-testid="stHorizontalBlock"] > [data-testid="column"] {{
+        flex: 1 1 100% !important; width: 100% !important; min-width: 100% !important; }}
+    /* hero: 2 numbers per row instead of 4, smaller */
+    .cq-hero {{ padding: 18px 16px !important; border-radius: 16px !important; }}
+    .cq-hero .stats {{ grid-template-columns: repeat(2, 1fr) !important; gap: 14px !important; }}
+    .cq-hero .st b {{ font-size: 1.7rem !important; }}
+    /* headings scale down so they don't overflow */
+    h1 {{ font-size: 1.85rem !important; line-height: 1.15 !important; }}
+    h2 {{ font-size: 1.3rem !important; }}
+    h3 {{ font-size: 1.1rem !important; }}
+    .cq-sub {{ font-size: .95rem !important; }}
+    /* KPI / stat tiles */
+    .cq-kpi {{ padding: 12px 14px !important; }}
+    .cq-kpi .v {{ font-size: 1.5rem !important; }}
+    /* player cards: one per row, centered */
+    .cq-flip, .cq-in, .cq-card {{ max-width: 340px !important; margin-left: auto !important; margin-right: auto !important; }}
+    /* tables and charts stay inside the screen (scroll instead of overflow) */
+    [data-testid="stDataFrame"], [data-testid="stPlotlyChart"] {{ max-width: 100% !important; }}
+    .cq-ticker .it {{ font-size: .8rem !important; }}
+  }}
+
   @media (prefers-reduced-motion: reduce) {{
     *, *::before, *::after {{ animation: none !important; transition: none !important; }}
     .cq-kpi .v.cnt, .cq-hero .st b.cnt {{ --cqn: var(--to); }}
